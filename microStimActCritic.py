@@ -5,7 +5,7 @@ Created on Wed Jul  6 22:31:16 2016
 @author: parth
 """
 
-
+from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
 import math 
@@ -105,7 +105,7 @@ def runTrial(x):
 #            print "w", w
         elig=gamma*Lambda*elig+x[:,time]
         oldValue=max(0,np.dot(w.T,x[:,time]))
-        a=mu*a+actThreshold(theta,oldValue)
+        a[time]=mu*a[time-1]+actThreshold(theta,oldValue)
     
 def simpleAcq(x,numTrials,rewardMag,rewardT,stimulusT):
     
