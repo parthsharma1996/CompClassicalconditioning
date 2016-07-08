@@ -105,7 +105,7 @@ def runTrial(x):
 #            print "w", w
         elig=gamma*Lambda*elig+x[:,time]
         oldValue=max(0,np.dot(w.T,x[:,time]))
-        a[time]=mu*a[time-1]+actThreshold(theta,oldValue)
+        a[time+1]=mu*a[time]+actThreshold(theta,oldValue)
     
 def simpleAcq(x,numTrials,rewardMag,rewardT,stimulusT):
     
